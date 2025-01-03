@@ -20,7 +20,12 @@ export function MobileSidebar() {
           <Menu className="h-6 w-6" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-0 w-96 h-full max-w-sm" side="left">
+      <DialogContent
+        className="p-0 w-96 h-full max-w-sm fixed left-0 top-0 transform transition-transform"
+        style={{
+          transform: open ? 'translateX(0)' : 'translateX(-100%)',
+        }}
+      >
         <Sidebar onClose={() => setOpen(false)} />
       </DialogContent>
     </Dialog>
