@@ -64,7 +64,7 @@ export default function WalletPage() {
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex space-x-4">
+            <div className="flex flex-row md:flex-col xl:flex-row gap-4">
               <Input
                 type="number"
                 placeholder="Enter amount"
