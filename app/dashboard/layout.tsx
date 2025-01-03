@@ -1,13 +1,18 @@
+'use client'
+
 import { Sidebar } from '@/components/sidebar'
 import { MobileSidebar } from '@/components/mobile-sidebar'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import Image from 'next/image'
+import { BottomBar } from '@/components/bottom-bar'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <div className="flex h-screen bg-background">
       <Sidebar className="hidden lg:flex" />
@@ -25,6 +30,7 @@ export default function DashboardLayout({
             {children}
           </div>
         </main>
+        {isMobile && <BottomBar />}
       </div>
     </div>
   )
