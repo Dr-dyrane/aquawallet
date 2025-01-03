@@ -66,7 +66,7 @@ export default function InvestmentPage() {
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalInvestment.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₦{totalInvestment.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground">Across all projects</p>
           </CardContent>
         </Card>
@@ -173,7 +173,7 @@ export default function InvestmentPage() {
                         ROI: {investment.roi}%
                     </p>
                   </div>
-                  <div className="text-sm font-medium">${investment.amount.toFixed(2)}</div>
+                  <div className="text-sm font-medium">₦{investment.amount.toFixed(2)}</div>
                 </li>
               ))}
             </ul>

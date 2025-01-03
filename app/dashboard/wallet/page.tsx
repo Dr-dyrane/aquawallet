@@ -53,7 +53,7 @@ export default function WalletPage() {
             <div className="flex items-center space-x-4">
               <CreditCard className="h-12 w-12 text-primary" />
               <div>
-                <p className="text-4xl font-bold">${balance.toFixed(2)}</p>
+                <p className="text-4xl font-bold">₦{balance.toFixed(2)}</p>
                 <p className="text-sm text-muted-foreground">Available funds</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function WalletPage() {
                 <div className={`text-sm font-medium ${
                   transaction.type === 'deposit' ? 'text-green-600' : 'text-red-600'
                 }`}>
-                  {transaction.type === 'deposit' ? '+' : '-'}${transaction.amount.toFixed(2)}
+                  {transaction.type === 'deposit' ? '+' : '-'}₦{transaction.amount.toFixed(2)}
                 </div>
               </li>
             ))}

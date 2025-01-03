@@ -5,6 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useInvestmentStore } from '@/lib/stores/investmentStore'
 import { useWalletStore } from '@/lib/stores/walletStore'
 import { Fish, DollarSign, TrendingUp, CreditCard } from 'lucide-react'
+import { ArrowUpCircle, ArrowDownCircle } from 'lucide-react'
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -45,7 +46,7 @@ export default function Dashboard() {
             <Fish className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalInvestment.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₦{totalInvestment.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground">+20.1% from last month</p>
           </CardContent>
         </Card>
@@ -65,7 +66,7 @@ export default function Dashboard() {
             <CreditCard className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${balance.toFixed(2)}</div>
+            <div className="text-2xl font-bold">₦{balance.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground">+10.1% from last month</p>
           </CardContent>
         </Card>
@@ -136,21 +137,21 @@ export default function Dashboard() {
           <ul className="space-y-4">
             {recentTransactions.map((transaction) => (
               <li key={transaction.id} className="flex items-center">
-                <div className={`rounded-full p-2 ${
-                  transaction.type === 'deposit' || transaction.type === 'return' ? 'bg-green-100' : 'bg-red-100'
-                } mr-3`}>
-                  <DollarSign className={`h-4 w-4 ${
-                    transaction.type === 'deposit' || transaction.type === 'return' ? 'text-green-600' : 'text-red-600'
-                  }`} />
+                <div className={`rounded-full p-2 ${transaction.type === 'deposit' || transaction.type === 'return' ? 'bg-green-100' : 'bg-red-100'
+                  } mr-3`}>
+                  {transaction.type === 'deposit' ? (
+                    <ArrowUpCircle className="h-4 w-4 text-green-600" />
+                  ) : (
+                    <ArrowDownCircle className="h-4 w-4 text-red-600" />
+                  )}
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-medium">{transaction.description}</p>
                   <p className="text-xs text-muted-foreground">{new Date(transaction.date).toLocaleString()}</p>
                 </div>
-                <div className={`text-sm font-medium ${
-                  transaction.type === 'deposit' || transaction.type === 'return' ? 'text-green-600' : 'text-red-600'
-                }`}>
-                  {transaction.type === 'deposit' || transaction.type === 'return' ? '+' : '-'}${transaction.amount.toFixed(2)}
+                <div className={`text-sm font-medium ${transaction.type === 'deposit' || transaction.type === 'return' ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                  {transaction.type === 'deposit' || transaction.type === 'return' ? '+' : '-'}₦{transaction.amount.toFixed(2)}
                 </div>
               </li>
             ))}
