@@ -13,6 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import Image from 'next/image'
 
 const navItems = [
   { icon: Home, label: 'Dashboard', href: '/dashboard' },
@@ -33,8 +34,9 @@ export function Sidebar({ className }: { className?: string }) {
 
   return (
     <aside className={cn("w-64 bg-card text-card-foreground border-r flex flex-col", className)}>
-      <div className="p-6">
-        <h1 className="text-2xl font-bold">AquaWallet</h1>
+      <div className="p-4 flex items-center justify-start space-x-2 border">
+        <Image src="/logo.png" alt="AquaWallet Logo" width={32} height={32} className="" />
+        <h1 className="text-2xl font-bold text-primary">AquaWallet</h1>
       </div>
       <nav className="flex-1 mt-6">
         <ul>

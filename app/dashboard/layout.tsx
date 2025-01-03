@@ -1,7 +1,7 @@
 import { Sidebar } from '@/components/sidebar'
 import { MobileSidebar } from '@/components/mobile-sidebar'
 import { ThemeSwitcher } from '@/components/theme-switcher'
-import { Fish } from 'lucide-react'
+import Image from 'next/image'
 
 export default function DashboardLayout({
   children,
@@ -15,8 +15,8 @@ export default function DashboardLayout({
         <header className="sticky top-0 z-40 flex items-center justify-between px-4 py-3 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
           <div className="flex items-center space-x-4">
             <MobileSidebar />
-            <Fish className="h-8 w-8 text-primary lg:hidden" />
-            <h1 className="text-2xl font-bold lg:hidden">AquaWallet</h1>
+            <Image src="/logo.png" alt="AquaWallet Logo" width={32} height={32} className="mx-auto lg:hidden"/>
+            <h1 className="text-2xl font-bold text-primary lg:hidden">AquaWallet</h1>
           </div>
           <ThemeSwitcher />
         </header>
