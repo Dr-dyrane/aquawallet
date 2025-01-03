@@ -103,7 +103,7 @@ export default function Dashboard() {
         </Card>
         <Card className="col-span-1">
           <CardHeader>
-            <CardTitle>Investment Distribution (Donut Chart)</CardTitle>
+            <CardTitle>Investment Distribution</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
