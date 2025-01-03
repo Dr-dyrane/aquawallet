@@ -47,8 +47,8 @@ export function Sidebar({ className, onClose }: { className?: string; onClose?: 
                 href={item.href}
                 onClick={onClose}
                 className={cn(
-                  "flex items-center px-6 py-3 text-sm font-medium transition-colors hover:bg-muted",
-                  pathname === item.href ? "bg-muted" : "transparent"
+                  "flex items-center px-6 py-3 text-sm font-medium transition-colors hover:bg-muted hover:text-primary",
+                  pathname === item.href ? "bg-muted text-primary" : "transparent text-muted-foreground"
                 )}
               >
                 <item.icon className="mr-3 h-5 w-5" />

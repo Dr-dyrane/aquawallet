@@ -13,7 +13,7 @@ const navItems = [
 ]
 
 export function BottomBar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t md:hidden">
@@ -23,15 +23,18 @@ export function BottomBar() {
             key={item.href}
             href={item.href}
             className={cn(
-              "flex flex-col items-center justify-center w-full h-full text-sm",
-              pathname === item.href ? "text-primary" : "text-muted-foreground"
+              "flex flex-col items-center justify-center w-full h-full text-sm font-medium",
+              pathname === item.href
+                ? "text-primary border-b-2 border-primary"
+                : "text-muted-foreground"
             )}
           >
-            <item.icon className="h-5 w-5" />
-            <span className="mt-1">{item.label}</span>
+            <item.icon className="h-5 w-5 mb-1" />
+            <span>{item.label}</span>
           </Link>
         ))}
       </div>
     </nav>
-  )
+  );
 }
+
