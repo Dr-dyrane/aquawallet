@@ -20,8 +20,8 @@ export function MobileSidebar() {
           <Menu className="h-6 w-6" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="p-0 w-4/5 h-full max-w-sm" side="left">
-        <Sidebar />
+      <DialogContent className="p-0 w-96 h-full max-w-sm" side="left">
+        <Sidebar onClose={() => setOpen(false)} />
       </DialogContent>
     </Dialog>
   )

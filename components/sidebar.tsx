@@ -22,7 +22,7 @@ const navItems = [
   { icon: User, label: 'Profile', href: '/dashboard/profile' },
 ]
 
-export function Sidebar({ className }: { className?: string }) {
+export function Sidebar({ className, onClose }: { className?: string; onClose?: () => void }) {
   const pathname = usePathname()
   const router = useRouter()
   const { user, logout } = useAuthStore()
@@ -30,10 +30,11 @@ export function Sidebar({ className }: { className?: string }) {
   const handleLogout = () => {
     logout()
     router.push('/')
+    if (onClose) onClose()
   }
 
   return (
-    <aside className={cn("w-64 bg-card text-card-foreground border-r flex flex-col", className)}>
+    <aside className={cn("w-96 lg:w-64 bg-card text-card-foreground border-r flex flex-col", className)}>
       <div className="p-4 flex items-center justify-start space-x-2 border">
         <Image src="/logo.png" alt="AquaWallet Logo" width={32} height={32} className="" />
         <h1 className="text-2xl font-bold text-primary">AquaWallet</h1>
@@ -44,6 +45,7 @@ export function Sidebar({ className }: { className?: string }) {
             <li key={item.href}>
               <Link
                 href={item.href}
+                onClick={onClose}
                 className={cn(
                   "flex items-center px-6 py-3 text-sm font-medium transition-colors hover:bg-muted",
                   pathname === item.href ? "bg-muted" : "transparent"
