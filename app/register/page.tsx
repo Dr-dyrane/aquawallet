@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useAuthStore } from '@/lib/stores/authStore'
 import { Fish } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -24,10 +25,10 @@ export default function Register() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary to-secondary p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/15 to-secondary/15 p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <Fish className="mx-auto h-12 w-12 text-primary" />
+          <Image src="/logo.png" alt="AquaWallet Logo" width={100} height={100} className="mx-auto" />
           <CardTitle className="text-2xl font-bold mt-2">Register for AquaWallet</CardTitle>
         </CardHeader>
         <CardContent>

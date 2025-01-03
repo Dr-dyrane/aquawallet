@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-primary to-secondary p-4 text-primary-foreground">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-primary/15 to-secondary/15 p-4 text-primary-foreground">
       <nav className="absolute top-0 right-0 m-4">
         <ThemeSwitcher />
       </nav>
-      <h1 className="mb-8 text-4xl font-bold">Welcome to AquaWallet</h1>
-      <p className="mb-8 text-center text-xl">
+      <h1 className="mb-8 text-4xl text-foreground font-bold">Welcome to AquaWallet</h1>
+      <p className="mb-8 text-center text-xl text-muted-foreground">
         Secure investment management for fish farm investors
       </p>
       <div className="space-x-4">
